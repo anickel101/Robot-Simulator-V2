@@ -12,7 +12,10 @@ document.addEventListener("DOMContentLoaded", function(){
       document.addEventListener("keydown", e => {
         if (e.code != "ShiftLeft" && e.code != "ShiftRight") {
           let code = parseCode(e.code);
-          move(code);
+
+          newMoveLi(code);
+
+          // move(code);
         }
       })
 
@@ -20,5 +23,23 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(input)
         return input.slice(5).toLowerCase();
       }
+
+      function newMoveLi(code){
+        let moveList = document.getElementById("moves-container");
+        let move = document.createElement("li");
+        move.textContent = code;
+        moveList.appendChild(move);
+      }
+
+      let moveButton = document.querySelector("#move-button");
+      moveButton.addEventListener("click", e => {
+        let moveList = document.getElementById("moves-container");
+        if (moveList.children.length > 0) {
+          let lastMove = moveList.lastChild;
+          move(lastMove.innerText);
+          lastMove.remove();
+        }
+      })
+
 
 })
