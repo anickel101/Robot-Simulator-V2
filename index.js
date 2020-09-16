@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function(){
       }
 
       function parseCode(input) {
-        console.log(input)
         return input.slice(5).toLowerCase();
       }
 
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let moveList = document.getElementById("moves-container");
         let move = document.createElement("li");
         move.textContent = code;
-        moveList.appendChild(move);
+        moveList.prepend(move);
       }
 
       let moveButton = document.querySelector("#move-button");
@@ -45,10 +44,7 @@ document.addEventListener("DOMContentLoaded", function(){
       let timeStep;
 
       function makeMoves(movelist) {
-         timeStep = setInterval(() => { moveLastChild(movelist) }, 1000)
-        
-          
-  
+         timeStep = setInterval(() => { moveLastChild(movelist) }, 500)
       }
 
       function moveLastChild(movelist) {
