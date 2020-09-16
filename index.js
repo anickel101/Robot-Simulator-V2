@@ -45,12 +45,10 @@ document.addEventListener("DOMContentLoaded", function(){
       // let timeStepId;
 
       function makeMoves(movelist){
-        console.log(movelist.children.length);
-        const listLength = movelist.children.length
-        for (let i = 0; i < listLength; i++) {
-          moveLastChild(movelist);
-          console.log(movelist.children.length);
-        }
+      
+        setInterval(() => { moveLastChild(movelist) }, 2500)
+     
+      
       }
 
       function moveLastChild(movelist){
