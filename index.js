@@ -42,20 +42,22 @@ document.addEventListener("DOMContentLoaded", function(){
         makeMoves(moveList);
       })
 
-      // let timeStepId;
+      let timeStep;
 
-      function makeMoves(movelist){
-      
-        setInterval(() => { moveLastChild(movelist) }, 2500)
-     
-      
+      function makeMoves(movelist) {
+         timeStep = setInterval(() => { moveLastChild(movelist) }, 1000)
+        
+          
+  
       }
 
-      function moveLastChild(movelist){
+      function moveLastChild(movelist) {
         if (movelist.children.length > 0) {
           let lastMove = movelist.lastChild;
           move(lastMove.textContent);
           lastMove.remove();
+        } else {
+          clearInterval(timeStep);
         }
       }
 })
